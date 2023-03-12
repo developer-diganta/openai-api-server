@@ -23,7 +23,7 @@ app.post('/question', async (req, res) => {
         });
         return;
     }
-
+    console.log(req.body.question)
     const question = req.body.question || '';
 
     if (question.trim().length === 0) {
