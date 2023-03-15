@@ -53,6 +53,20 @@ app.post('/question', async (req, res) => {
     }
 });
 
+app.post("/image", async (req, res) => {
+    try {
+        const response = await openai.createImage({
+            prompt: req.body.question,
+            n: 1,
+            size: "1024x1024",
+        });
+        const imageUrl = response.data.data[0].url;
+        res.status(200).json({ imageUrl })
+    } catch (err) {
+        res.status(500).json({ err })
+    }
+})
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
