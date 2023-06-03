@@ -61,7 +61,6 @@ app.post("/image", async (req, res) => {
             size: "1024x1024",
         });
         const imageUrl = response.data.data[0].url;
-        console.log(imageUrl)
         res.status(200).json({ imageUrl })
     } catch (err) {
         res.status(500).json({ err })
