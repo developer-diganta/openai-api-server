@@ -26,7 +26,7 @@ app.post('/question', async (req, res) => {
     }
     console.log(req.body.question)
     const question = req.body.question || '';
-
+    console.log(req.body.question.trim())
     if (question.trim().length === 0) {
         res.status(400).json({
             error: {
