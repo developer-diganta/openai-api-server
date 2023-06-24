@@ -15,6 +15,7 @@ const openai = new OpenAIApi(configuration);
 app.use(express.json());
 
 app.post('/question', async (req, res) => {
+    console.log(req.body)
     if (!configuration.apiKey) {
         res.status(500).json({
             error: {
@@ -54,6 +55,7 @@ app.post('/question', async (req, res) => {
 });
 
 app.post("/image", async (req, res) => {
+    console.log("HERE")
     try {
         const response = await openai.createImage({
             prompt: req.body.question,
